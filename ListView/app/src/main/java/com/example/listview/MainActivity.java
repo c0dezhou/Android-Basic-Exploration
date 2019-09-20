@@ -40,5 +40,6 @@ public class MainActivity extends AppCompatActivity {
 
         ListView list =(ListView)findViewById(R.id.list_view);
         list.setAdapter(adapter);
+
     }
 }
