@@ -463,6 +463,16 @@ public class ListActivity extends AppCompatActivity {
                 //新增单词
                 InsertDialog();
                 return true;
+            case R.id.help: {
+                AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+                dialog.setTitle("help");
+                dialog.setMessage("这是帮助");
+                dialog.setPositiveButton("确定", null);
+                dialog.show();
+            }break;
+            case R.id.exit: {
+                Toast.makeText(this,"您选择了取消",Toast.LENGTH_SHORT).show();
+            }break;
         }
 
 
