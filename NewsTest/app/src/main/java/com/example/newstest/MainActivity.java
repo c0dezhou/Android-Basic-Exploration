@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         final ActionBar actionBar = getSupportActionBar();
         if (actionBar != null){
             actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setHomeAsUpIndicator(R.drawable.nav_notifications);
+            actionBar.setHomeAsUpIndicator(R.drawable.icons_ch);
         }
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setTitle("国际新闻");

@@ -26,7 +26,7 @@ public class ContentActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null){
             actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setHomeAsUpIndicator(R.drawable.ic_back);
+            actionBar.setHomeAsUpIndicator(R.drawable.icons_back);
         }
 
         webView = (WebView)findViewById(R.id.web_view);
