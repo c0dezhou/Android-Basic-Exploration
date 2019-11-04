@@ -1,10 +1,20 @@
 package com.example.player;
 
+import android.annotation.SuppressLint;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.database.Cursor;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.provider.MediaStore;
 import android.view.MenuItem;
 import android.view.WindowManager;
@@ -13,6 +23,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 
@@ -21,6 +32,20 @@ public class VideoPlayer extends AppCompatActivity {
     private VideoView mVideoView;
     private int mLastPlayedTime;
     private final String LAST_PLAYED_TIME = "LAST_TIME";
+    ServiceConnection mServiceConnection = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            MyService myService = ((MyService.MyBinder) service).getMyService();
+             myService.CreateInform();
+
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+        }
+
+    };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +65,9 @@ public class VideoPlayer extends AppCompatActivity {
         if (this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
 
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            Intent myServiceIntent = new Intent(this, MyService.class);
+            bindService(myServiceIntent, mServiceConnection,
+                    Context.BIND_AUTO_CREATE);
 
             String[] searchKey = new String[]{
                     MediaStore.Video.Media.TITLE,
