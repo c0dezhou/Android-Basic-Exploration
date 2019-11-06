@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.word">
-    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+
+    <uses-permission android:name="android.permission.READ_CONTACTS" /> <!-- 网络权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,6 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".YouDaoSent"></activity>
+        <activity android:name=".YDSearchActivity" />
         <activity android:name=".ListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,13 +21,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DetailActivity"></activity>
-        <activity android:name=".SearchActivity"></activity>
+        <activity android:name=".DetailActivity" />
+        <activity android:name=".SearchActivity" />
+
         <provider
-            android:authorities="com.example.word.provider"
             android:name=".DatabaseProvider"
+            android:authorities="com.example.word.provider"
             android:enabled="true"
-            android:exported="true"></provider>
+            android:exported="true" />
     </application>
 
 </manifest>

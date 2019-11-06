@@ -463,6 +463,12 @@ public class ListActivity extends AppCompatActivity {
                 //新增单词
                 InsertDialog();
                 return true;
+            case R.id.action_youdaosearch:{
+                Intent intent = new Intent(this, YouDaoSent.class);
+
+                startActivity(intent);
+
+            }break;
             case R.id.help: {
                 AlertDialog.Builder dialog = new AlertDialog.Builder(this);
                 dialog.setTitle("help");
