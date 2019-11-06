@@ -33,7 +33,66 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
+import android.Manifest;
+import android.content.Intent;
+import android.location.LocationManager;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Bundle;
+import android.os.PowerManager;
+import android.provider.Settings;
+import android.util.Log;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+import com.amap.api.location.AMapLocation;
+import com.amap.api.location.AMapLocationClient;
+import com.amap.api.location.AMapLocationClientOption;
+import com.amap.api.location.AMapLocationListener;
+import com.bumptech.glide.Glide;
+import com.google.gson.Gson;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import java.io.IOException;
+import java.util.List;
+import butterknife.BindView;
+import butterknife.BindViews;
+import butterknife.ButterKnife;
+import interfaces.heweather.com.interfacesmodule.bean.Lang;
+import interfaces.heweather.com.interfacesmodule.bean.Unit;
+import interfaces.heweather.com.interfacesmodule.bean.air.now.AirNow;
+import interfaces.heweather.com.interfacesmodule.bean.weather.now.Now;
+import interfaces.heweather.com.interfacesmodule.view.HeConfig;
+import interfaces.heweather.com.interfacesmodule.view.HeWeather;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+
+import static android.content.pm.PackageManager.PERMISSION_GRANTED;
+
+
 public class MainActivity extends AppCompatActivity {
+
+    String TAG="ShowWeather";
+    @BindViews({R.id.tv_tianqi,R.id.tv_kongqi,R.id.tv_wind})
+    List<TextView>textViewList;
+    @BindView(R.id.img_weather)
+    ImageView imageView;
+    public AMapLocationClient mLocationClient=null;
+    private static final int BAIDU_READ_PHONE_STATE = 100;//定位权限请求
+    private static final int PRIVATE_CODE = 1315;//开启GPS权限
+    //声明定位回调监听器
+    public AMapLocationClientOption mLocationOption=null;
+    //Location_Bean location_bean;
+    private   String CityId;
 
     private static final int  ITEM_SOCIETY= 1;
     private static final int  ITEM_INTERNATION= 2;
@@ -60,6 +119,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
         refreshLayout = (SwipeRefreshLayout)findViewById(R.id.swipe_layout);
         refreshLayout.setColorSchemeColors(getResources().getColor(R.color.colorPrimary));
         listView = (ListView)findViewById(R.id.list_view);
@@ -72,6 +133,7 @@ public class MainActivity extends AppCompatActivity {
         if (actionBar != null){
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setHomeAsUpIndicator(R.drawable.icons_ch);
+
         }
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setTitle("国际新闻");
@@ -94,6 +156,7 @@ public class MainActivity extends AppCompatActivity {
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
                 switch (item.getItemId()){
 
                     case R.id.nav_internation:
@@ -102,8 +165,12 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.nav_society:
                         handleCurrentPage("社会新闻",ITEM_SOCIETY);
                         break;
-                    case R.id.nav_fun:
+                    case R.id.nav_fun:{
                         handleCurrentPage("娱乐新闻",ITEM_FUN);
+
+
+                    }
+
                         break;
                     case R.id.nav_sport:
                         handleCurrentPage("体育新闻",ITEM_SPORT);
@@ -359,8 +426,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
-            case android.R.id.home:
-                drawerLayout.openDrawer(GravityCompat.START);
+            case android.R.id.home:{
+                Intent intent=new Intent(MainActivity.this,ShowWeatherActivity.class);
+                startActivity(intent);
+                drawerLayout.openDrawer(GravityCompat.START);}
                 break;
             default:
         }
