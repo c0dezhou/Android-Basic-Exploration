@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".DateActivity"
+    android:weightSum="1">
+
+
+<Button
+android:layout_width="352dp"
+android:layout_height="wrap_content"
+    android:background="@drawable/btn_selector"
+android:text="开始日期"
+android:id="@+id/btnChoose1Date"
+android:layout_weight="0.05" />
+
+<TextView
+android:id="@+id/text1"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:text="开始日期："
+android:textSize="@dimen/activity_horizontal_margin"
+android:textStyle="italic"
+android:layout_weight="0.08" />
+
+
+<Button
+android:layout_width="352dp"
+android:layout_height="wrap_content"
+    android:background="@drawable/btn_selector"
+android:text="结束日期"
+android:id="@+id/btnChoose2Date"
+android:layout_weight="0.05" />
+
+<TextView
+android:id="@+id/text2"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:text="结束日期："
+android:textStyle="italic"
+android:textSize="@dimen/activity_horizontal_margin"
+android:layout_weight="0.08" />
+
+
+<Button
+android:layout_width="352dp"
+android:layout_height="wrap_content"
+    android:background="@drawable/btn_selector"
+android:text="计算间隔天数"
+android:id="@+id/btnDaysAty"
+android:layout_weight="0.05" />
+
+<TextView
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="日期间隔为："
+android:textStyle="italic"
+android:layout_weight="0.08"
+android:textSize="@dimen/activity_horizontal_margin"
+android:id="@+id/days" />
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal">-->
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:text="初始日期："/>-->
+<!--    -->
+<!--    <EditText-->
+<!--        android:id="@+id/c_kaishi"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"/>-->
+<!--    </LinearLayout>-->
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal">-->
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:text="结束日期："/>-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/c_jieshu"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"/>-->
+<!--    </LinearLayout>-->
+<!--    -->
+<!--    <Button-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="计算"-->
+<!--        android:layout_gravity="right"-->
+<!--        android:id="@+id/btn_date"></Button>-->
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal">-->
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:text="结果："/>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/cresult"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="30dp"/>-->
+<!--    </LinearLayout>-->
+
+</LinearLayout>

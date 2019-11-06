@@ -8,6 +8,10 @@
         android:title="exit"/>
     <item android:id="@+id/zhuanhuan"
         android:title="单位/进制转换"/>
+    <item android:id="@+id/cdate"
+        android:title="日期计算"/>
+    <item android:id="@+id/huilv"
+        android:title="货币汇率"/>
 
 
 

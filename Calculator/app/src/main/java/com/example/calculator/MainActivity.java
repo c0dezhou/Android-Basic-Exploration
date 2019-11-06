@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -51,6 +52,15 @@ public class MainActivity extends AppCompatActivity {
             }break;
             case R.id.zhuanhuan: {
                 Intent intent=new Intent(MainActivity.this, ChangeActivity.class);
+                startActivity(intent);
+            }break;
+            case R.id.cdate:{
+                Intent intent=new Intent(MainActivity.this, DateActivity.class);
+                startActivity(intent);
+            }break;
+            case R.id.huilv:{
+                Uri uri = Uri.parse("http://forex.hexun.com/rmbhl/#zkRate");//要跳转的网址
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(intent);
             }break;
         }
