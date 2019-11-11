@@ -119,7 +119,7 @@ public class ShowWeatherActivity extends AppCompatActivity {
                 double LatitudeId = aMapLocation.getLatitude();
                 //获取定位城市定位的ID
                 requestCityInfo(LongitudeId,LatitudeId);
-                Toast.makeText(ShowWeatherActivity.this,"所在城市："+aMapLocation.getProvince()+aMapLocation.getCity(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(ShowWeatherActivity.this,"所在城市："+aMapLocation.getProvince()+aMapLocation.getCity()+aMapLocation.getDistrict(),Toast.LENGTH_SHORT).show();
                 mLocationClient.stopLocation();//停止定位
             } else {
                 //显示错误信息ErrCode是错误码，errInfo是错误信息，详见错误码表。

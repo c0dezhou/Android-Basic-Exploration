@@ -43,8 +43,8 @@
             android:textSize="15sp" />
         <ImageView
             android:id="@+id/img_weather"
-            android:layout_width="11dp"
-            android:layout_height="18dp" />
+            android:layout_width="25dp"
+            android:layout_height="25dp" />
 
         <TextView
             android:id="@+id/tv_kongqi"
