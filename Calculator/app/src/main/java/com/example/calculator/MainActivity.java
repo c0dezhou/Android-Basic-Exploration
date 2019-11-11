@@ -59,8 +59,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }break;
             case R.id.huilv:{
-                Uri uri = Uri.parse("http://forex.hexun.com/rmbhl/#zkRate");//要跳转的网址
-                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                //Uri uri = Uri.parse("http://forex.hexun.com/rmbhl/#zkRate");//要跳转的网址
+                Intent intent = new Intent(MainActivity.this,Huilv.class);
                 startActivity(intent);
             }break;
         }
